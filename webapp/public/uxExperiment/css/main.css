@@ -1,0 +1,168 @@
+/* Common CSS */
+body {
+  height: 82vh;
+}
+
+h1 {
+  font-size: 7em;
+  text-align: center;
+  margin: unset;
+}
+
+h3 {
+  font-size: 4em;
+}
+
+.common-button {
+  border-radius: 2em;
+  background-color: gray;
+  text-align: center;
+  color: white;
+}
+
+.gap-top {
+  margin-top: 4em;
+}
+
+.large-button {
+  padding: 4em 0;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.large-button-text {
+  font-size: 6em;
+}
+
+.medium-button {
+  padding: 3em 0;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.medium-button-text {
+  font-size: 4em;
+}
+
+.small-button {
+  padding: 2em 0;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.small-button-text {
+  font-size: 2em;
+}
+
+/* CSS of index.html */
+.index-main-container {
+  position: relative;
+  height: 100%;
+}
+
+.always-skip-button {
+  position: absolute;
+  bottom: 4vh;
+  right: 1em;
+  padding: 3em;
+}
+
+.always-skip-text {
+  font-size: 3em;
+}
+
+/* CSS of navConf.html */
+.target-select * {
+  display: inline-block;
+}
+
+.terget-select-title {
+  font-size: 3em;
+  width: 38%;
+}
+
+select {
+  width: 60%;
+  height: 5em;
+  font-size: 100%;
+  font-weight: bold;
+  border-radius: 0;
+  background-color: gray;
+  border: none;
+  color: white;
+  padding: 10px;
+  appearance: none;
+}
+
+.swtich-direction-arrow{
+  color: black;
+  font-size: 3em;
+  width: max-content;
+  margin: auto;
+  transform: rotate(90deg);
+}
+
+/* CSS of pathsOverview.html */
+.overview-list {
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.description {
+  background-color: gray;
+  color: white;
+  border-radius: 1em;
+}
+
+/* CSS of nav.html */
+
+.map iframe {
+  height: 100%;
+  width: 100%;
+}
+
+.map {
+  width: 98%;
+  height: 30vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.milestone-nav{
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+}
+
+.milestone {
+  max-height: 20vh;
+  overflow-y: auto;
+}
+
+.playlist-button {
+  display: inline-block;
+}
+
+.playlist-button-img {
+  width: 10em;
+  height: 8em;
+}
+
+.playlist-main-button-img {
+  width: 14em;
+  height: 14em;
+}
+
+.previous {
+  transform: rotate(180deg);
+}
+
+.playpause {
+  margin-left: 16%;
+  margin-right: 16%;
+  height: max-content;
+  width: max-content;
+}
