@@ -72,7 +72,7 @@ textarea {
 }
 
 .large-button {
-  padding: 4em 0;
+  padding: 2em 0;
   width: 98%;
   margin-left: auto;
   margin-right: auto;
@@ -83,7 +83,7 @@ textarea {
 }
 
 .medium-button {
-  padding: 3em 0;
+  padding: 2em 0;
   width: 98%;
   margin-left: auto;
   margin-right: auto;
@@ -94,7 +94,7 @@ textarea {
 }
 
 .small-button {
-  padding: 2em 0;
+  padding: 1em 0;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -128,7 +128,7 @@ textarea {
 
 .target-select-title {
   font-size: 4em;
-  width: 38%;
+  width: 42%;
 }
 
 .select option {
@@ -144,6 +144,11 @@ textarea {
   transform: rotate(90deg);
 }*/
 
+.doubleArrow{
+  width: 15%;
+  padding-left: 50%;
+}
+  
 
 /* CSS of pathsOverview.html */
 
@@ -222,10 +227,12 @@ textarea {
 }
 #from {
   font-size: 30pt;
+  width: 50%;
 }
 
 #to {
   font-size: 30pt;
+  width: 50%;
 }
 
 #map {
