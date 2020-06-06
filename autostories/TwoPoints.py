@@ -65,18 +65,18 @@ def get_points_between_two_points(point1, point2):
 
 
 def is_on_line(point1, point2, lat, lon):
-
-    #m1 = (lat - point1.lat) / (lon - point1.lon)
-    #m2 = (lat - point2.lat) / (lon - point2.lon)
-    #if m1 == m2:
+    # m1 = (lat - point1.lat) / (lon - point1.lon)
+    # m2 = (lat - point2.lat) / (lon - point2.lon)
+    # if m1 == m2:
     #    print("exacly on line")
-    point12dis = Point.calc_distance(point1,point2)
+    point12dis = Point.calc_distance(point1, point2)
 
-    tempPoint = Point(lat,lon,-1)
-    a = Point.calc_distance(point1,tempPoint) + Point.calc_distance(tempPoint,point2)
-    if(abs(point12dis - a) < 0.00001):
+    tempPoint = Point(lat, lon, -1)
+    a = Point.calc_distance(point1, tempPoint) + Point.calc_distance(tempPoint, point2)
+    if (abs(point12dis - a) < 0.00001):
         return True
     return False
+
 
 def get_points_between_two_points_second_version(point1, point2):
     (lat1, lon1), (lat2, lon2) = (point1.lat, point1.lon), (point2.lat, point2.lon)
@@ -86,16 +86,15 @@ def get_points_between_two_points_second_version(point1, point2):
 
     soup = bs4.BeautifulSoup(osm_text, "lxml")
     nodes = soup.findAll("node")
-    #print("len(nodes)",len(nodes))
+    # print("len(nodes)",len(nodes))
     points = []
     for node in nodes:  # 1184053312
         lat = float(node.get("lat"))
         lon = float(node.get("lon"))
 
-        if is_on_line(point1,point2,lat,lon):
+        if is_on_line(point1, point2, lat, lon):
             points.append(Point(lat, lon, node.get("id")))
     return points
-
 
 
 def point_node_distance(point1, node1):

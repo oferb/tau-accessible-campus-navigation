@@ -24,13 +24,25 @@ class Point:
         brng = (brng + 360) % 360
         return brng
 
+    def get_x_y(self):
+        """Convert angluar to cartesian coordiantes
+
+        latitude is the 90deg - zenith angle in range [-90;90]
+        lonitude is the azimuthal angle in range [-180;180]
+        """
+        r = 6371  # https://en.wikipedia.org/wiki/Earth_radius
+        theta = math.pi / 2 - math.radians(self.lat)
+        phi = math.radians(self.lon)
+        x = r * math.sin(theta) * math.cos(phi)  # bronstein (3.381a)
+        y = r * math.sin(theta) * math.sin(phi)
+        return [x, y]
+
     @staticmethod
     def sub_points(point1, point2):
         return Point(point2.lat - point1.lat, point2.lon - point1.lon, 0)
 
     @staticmethod
     def calc_distance(point1, point2):
-
         lat1 = math.radians(point1.lat)
         lon1 = math.radians(point1.lon)
         lat2 = math.radians(point2.lat)
@@ -43,17 +55,10 @@ class Point:
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
         distance = R * c
 
-        distance = distance *1000  # to meter
+        distance = distance * 1000  # to meter
 
         return distance
 
-        """
-        p_lat = point1.lat
-        p_lon = point1.lon
-        n_lat = point2.lat
-        n_lon = point2.lon
-        return math.sqrt((p_lat - n_lat) ** 2 + (p_lon - n_lon) ** 2)
-"""
 
 class Section:
     def __init__(self, start_point: Point, end_point: Point, is_steps: bool, length: int, ground_type: str = "",

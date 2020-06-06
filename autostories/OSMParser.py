@@ -1,5 +1,6 @@
 from osmread import parse_file, Node, Way
 from autostories.Section import Point
+import pprint
 
 
 def osm_to_entities(path: str):
@@ -79,12 +80,13 @@ def create_output_list(nodes, ways):
         node_ids = way.nodes
         for id in node_ids:
             node_tags = {}
-            id_in_nodes = False
+            current_node = None
             for node in nodes:
                 if (node.id == id) and node.tags:
-                    id_in_nodes = True
-            if not id_in_nodes:
-                start_point = Point(0, 0, id)  # ???
+                    current_node = node
+                    break
+            if current_node is not None:
+                start_point = Point(current_node.lat, current_node.lon, id)  # ???
                 node_tags["start_point"] = start_point
 
                 if "highway" in way.tags:
@@ -131,10 +133,16 @@ def create_nodes_info(path: str):
     entities = osm_to_entities(path)
     nodes = create_nodes(entities)
     ways = create_ways(entities)
-    nodes_info = create_output_list(nodes, ways)
-    return nodes_info
+    return create_output_list(nodes, ways)
 
+
+def example_look_for_steps():
+    nodes_info = create_nodes_info("part_map_entrance_to_gilman.osm")
+    for node in nodes_info:
+        if "is_steps" in node and node["is_steps"]:
+            pprint.pprint(node)
+            print(node["start_point"].to_string())
+    print(len(nodes_info))
 
 if __name__ == '__main__':
-    nodes_info = create_nodes_info("map2.osm")
-    print(len(nodes_info))
+    example_look_for_steps()

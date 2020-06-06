@@ -52,7 +52,7 @@ def create_section_from_info(info):
     return section
 
 
-def create_points_list(points_list):
+def create_points_list(raw_points_list):
     """
 
     :param points_list: len >= 1
@@ -60,9 +60,9 @@ def create_points_list(points_list):
     """
     new_points_list = []
 
-    for point_index in range(0, len(points_list)):
+    for point_index in range(0, len(raw_points_list)):
         # closest_point = get_closest_node(points_list[point_index])
-        new_points_list.append(Point(points_list[point_index][1], points_list[point_index][0], -1))
+        new_points_list.append(Point(raw_points_list[point_index][1], raw_points_list[point_index][0], -1))
 
     return new_points_list
 
@@ -85,8 +85,8 @@ def get_all_nodes_in_route(points_list):
     return all_points
 
 
-def get_all_nodes_in_route_simple(points_list):
-    points_list = create_points_list(points_list)
+def get_all_nodes_in_route_simple(raw_points_list):
+    points_list = create_points_list(raw_points_list)
     print("start points_list len", len(points_list))
     for i in range(0, len(points_list) - 2):
         points_to_add_list = get_points_between_two_points_second_version(points_list[i], points_list[i + 1])
