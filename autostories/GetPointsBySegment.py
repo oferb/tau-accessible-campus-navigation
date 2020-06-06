@@ -3,6 +3,7 @@ from autostories.Section import Point
 from autostories.ExampleInput import *
 from autostories.Building import create_points_list
 import pprint
+from autostories.Section import sort_by_distance
 from autostories import tempExampleIndex
 
 
@@ -43,9 +44,6 @@ def dist_from_segment(coordinates_1, coordinates_2, coordinates_3):  # x3,y3 is 
     return dist
 
 
-
-
-
 def get_points_between_two_points_by_segment_distance(nodes_info: list, point1: Point, point2: Point, dis: float = 1):
     """
     Args:
@@ -67,13 +65,16 @@ def get_points_between_two_points_by_segment_distance(nodes_info: list, point1: 
 if __name__ == '__main__':
 
     first = 0
-    second = 1
+    second = 5
     nodes_info = create_nodes_info("part_map_entrance_to_gilman.osm")
     points_list = create_points_list(entrance_to_gilman)
     point1_x_y = points_list[first].get_x_y()
     point2_x_y = points_list[second].get_x_y()
     result = get_points_between_two_points_by_segment_distance(nodes_info, points_list[first], points_list[second],
-                                                               0.005)
+                                                               0.002)
     print(len(result))
+    sort_by_distance(result,points_list[first])
+    print(points_list[first].to_string())
+    print(points_list[second].to_string())
     for node in result:
-        pprint.pprint(node)
+        print(node.to_string())

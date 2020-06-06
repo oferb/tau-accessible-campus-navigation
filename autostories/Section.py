@@ -1,3 +1,5 @@
+import functools
+
 import numpy as np
 import math
 
@@ -37,6 +39,9 @@ class Point:
         y = r * math.sin(theta) * math.sin(phi)
         return [x, y]
 
+    def equal(self, other_point):
+        return self.id == other_point.id
+
     @staticmethod
     def sub_points(point1, point2):
         return Point(point2.lat - point1.lat, point2.lon - point1.lon, 0)
@@ -59,45 +64,49 @@ class Point:
 
         return distance
 
-def sort_by_distance(points_list: list, start_point: Point):
+
+def sort_by_distance(node_list: list, start_point: Point):
     """
     Args:
         start_point: Point
-        points_list: list of dict of Points
+        node_list: list of dict of Points
     """
 
-    def sort_by_distance_sorting_function(point1, point2):
-        return Point.calc_distance(point1, start_point) > Point.calc_distance(point2,start_point)
+    def sort_by_distance_sorting_function(node1, node2):
+        return Point.calc_distance(node1["start_point"], start_point) > Point.calc_distance(node2["start_point"],
+                                                                                            start_point)
 
-    points_list.sort(key=sort_by_distance_sorting_function)
+    node_list.sort(key=functools.cmp_to_key(sort_by_distance_sorting_function))
 
 
 class Section:
-    def __init__(self, start_point: Point, end_point: Point, is_steps: bool, length: int, ground_type: str = "",
-                 slope: int = 0,
-                 r_side_description: str = "", l_side_description: str = "",
-                 steps_num: int = 0, rail: str = "N", stairs_slope: str = "N", block: str = "", comments: str = "",
-                 name=""):
+    def __init__(self, start_point: Point, end_point: Point):
+        self.start_point = start_point  # 0
+        self.end_point = end_point  # 1
+
+    def set_parameters(self, is_steps: bool, length: int, ground_type: str = "",
+                       slope: int = 0,
+                       r_side_description: str = "", l_side_description: str = "",
+                       steps_num: int = 0, rail: str = "N", stairs_slope: str = "N", block: str = "",
+                       comments: str = "",
+                       name: str = ""):
         """
         :param rail: out of (N - no rail, "left","right")
         :param stairs_slope: out of ("N" - no stairs,"up","down")
         :param comments: no stairs comments
         """
-
-        self.start_point = start_point  # 0
-        self.end_point = end_point  # 1
-        self.is_steps = is_steps  # 2
-        self.length = length  # 3
-        self.ground_type = ground_type  # 4
-        self.slope = slope  # 5
-        self.r_side_description = r_side_description  # 6
-        self.l_side_description = l_side_description  # 7
-        self.steps_num = steps_num  # 8
-        self.rail = rail  # 9
-        self.stairs_slope = stairs_slope  # 10
-        self.block = block  # 11
-        self.comments = comments  # 12
-        self.name = name  # 13
+        self.is_steps = is_steps  # 0
+        self.length = length  # 1
+        self.ground_type = ground_type  # 2
+        self.slope = slope  # 3
+        self.r_side_description = r_side_description  # 4
+        self.l_side_description = l_side_description  # 5
+        self.steps_num = steps_num  # 6
+        self.rail = rail  # 7
+        self.stairs_slope = stairs_slope  # 8
+        self.block = block  # 9
+        self.comments = comments  # 10
+        self.name = name  # 11
 
     @staticmethod
     def check_if_dff(section1, section2):
