@@ -1,13 +1,14 @@
 from osmread import parse_file, Node, Way
 from autostories.Section import Point
 import pprint
+from collections import namedtuple
+
 
 
 def osm_to_entities(path: str):
     entities = []
     for entity in parse_file(path):
-        if entity.tags:
-            entities.append(entity)
+        entities.append(entity)
     return entities
 
 
@@ -143,6 +144,7 @@ def example_look_for_steps():
             pprint.pprint(node)
             print(node["start_point"].to_string())
     print(len(nodes_info))
+
 
 if __name__ == '__main__':
     example_look_for_steps()
