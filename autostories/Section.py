@@ -59,6 +59,18 @@ class Point:
 
         return distance
 
+def sort_by_distance(points_list: list, start_point: Point):
+    """
+    Args:
+        start_point: Point
+        points_list: list of dict of Points
+    """
+
+    def sort_by_distance_sorting_function(point1, point2):
+        return Point.calc_distance(point1, start_point) > Point.calc_distance(point2,start_point)
+
+    points_list.sort(key=sort_by_distance_sorting_function)
+
 
 class Section:
     def __init__(self, start_point: Point, end_point: Point, is_steps: bool, length: int, ground_type: str = "",
