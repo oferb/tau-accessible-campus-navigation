@@ -5,14 +5,14 @@ from autostories.Section import Point
 
 def create_empty_sections(points_list: list) -> list:
     sections = []
-    for i in range(len(points_list)):
+    for i in range(len(points_list) - 1):
         sections.append(Section(points_list[i], points_list[i + 1]))
     return sections
 
 
 def node_is_nodes_list(node_list, node):
     for i in range(len(node_list)):
-        if node_list[i]["start_point"].equal(node):
+        if node_list[i]["start_point"].equal(node["start_point"]):
             return True
     return False
 
@@ -30,8 +30,8 @@ def remove_by_id(current_nodes: list, node):
 def divide_the_nodes(prev_section: Section, prev_nodes: list, current_section: Section, current_nodes: list):
     result_current_nodes = current_nodes.copy()
     result_prev_nodes = prev_nodes.copy()
-    for i in range(len(result_prev_nodes)):
-        current_shared_node = result_prev_nodes[i]
+    for i in range(len(prev_nodes)):
+        current_shared_node = prev_nodes[i]
         if node_is_nodes_list(result_current_nodes, current_shared_node):
             if Point.calc_distance(prev_section.start_point, current_shared_node["start_point"]) < Point.calc_distance(
                     current_shared_node["start_point"], current_section.end_point):
@@ -116,5 +116,5 @@ def create_sections(points_list, nodes_info) -> list:
     nodes_to_add_to_sections = create_nodes_to_add_to_sections(sections, nodes_info)
     result_sections = []
     for i in range(len(sections)):
-        result_sections.append(add_parameters_to_section_by_nodes(sections[i], nodes_to_add_to_sections[i]))
+        result_sections.extend(add_parameters_to_section_by_nodes(sections[i], nodes_to_add_to_sections[i]))
     return result_sections

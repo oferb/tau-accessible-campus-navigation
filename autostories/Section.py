@@ -153,13 +153,13 @@ class Section:
         return "in your left side you can find " + self.l_side_description
 
     def create_length_description(self) -> str:
-        return "the length of the road is " + str(self.length)
+        return "the length of the road is " + str(self.length//1    ) + " meter"
 
     def create_block_description(self) -> str:
         return "there is a blocking object ahead: " + self.block
 
     def create_comments_description(self) -> str:
-        return "here is some extra information about your road " + self.comments
+        return "extra information about your road is: " + self.comments
 
     def create_name_description(self) -> str:
         return "the name of the road is: " + self.name

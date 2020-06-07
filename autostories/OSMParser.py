@@ -4,7 +4,6 @@ import pprint
 from collections import namedtuple
 
 
-
 def osm_to_entities(path: str):
     entities = []
     for entity in parse_file(path):
@@ -119,15 +118,6 @@ def create_output_list(nodes, ways):
             if node_tags:
                 output.append(node_tags)
     return output
-
-
-def write_nodes_to_file(nodes, name, sheet, book):
-    for i, node in enumerate(nodes):
-        cell = "A" + str(i)
-        print(str(node.id))
-        print(sheet[cell])
-        sheet[cell] = str(node.id)
-    book.save(name)
 
 
 def create_nodes_info(path: str):
