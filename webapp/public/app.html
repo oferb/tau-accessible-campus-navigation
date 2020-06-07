@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+	<meta charset="utf-8">
+	<title>TAU Walks</title>
+	<link rel="stylesheet" href="app.css" />
+	<script type="text/javascript" src="app.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		crossorigin="" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/collection/components/icon/icon.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.awesome-markers@2.0.5/dist/leaflet.awesome-markers.css">
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+		integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+		crossorigin=""></script>
+</head>
+
+<body>
+	<div id="path_selector_page">
+		<div class="target-select" dir="rtl">
+			<p class="target-select-title">נקודת התחלה: </p>
+			<select id = "from">
+        </select>
+		</div>
+    <div aria-label="Switch direction" class="switch-direction-arrow">
+			<img aria-hidden="true" class="doubleArrow" src="/assets/doubleArrow-white.png"/>
+    </div>
+		<div class="target-select" dir="rtl">
+			<p class="target-select-title">נקודת יעד: </p>
+			<select id = "to" text-align-last: center>
+        </select>
+		</div>
+    <div class="medium-button common-button gap-top" onclick="goto_review_page()">
+      <p class="medium-button-text">סקירת המסלול הנבחר</p>
+    </div>
+    <div class="large-button common-button gap-top" onclick="goto_nav_page()">
+      <p class="large-button-text">תחילת ניווט</p>
+    </div>
+    <div class="small-button common-button gap-top">
+      <p class="medium-button-text">חזרה למדריך</p>
+    </div>
+	</div>
+
+  <div id="path_navigator_page" hidden>
+    <div class="map-overlay">
+      <div id="map"></div>
+    </div>
+    <div id="details">
+      <h4 id="milestone-title">אבן דרך</h4>
+      <div class="description milestone">
+        <p style="font-size:calc(30px + 2.8vw)" id="step_view" display="block">
+        </p>
+      </div>
+    </div>
+    <div class="milestone-nav gap-top">
+      <div aria-label="Previous Milestone" role="button" class="playlist-button"
+        onclick="move_to_previous_step()">
+        <img class="playlist-button-img" src="/assets/fastForward-white.png"/>
+      </div>
+      <div aria-label="Play/Pause" role="button" class="playpause playlist-button">
+        <img class="playlist-main-button-img" src="/assets/currentLocation-white.png">
+      </div>
+      <div aria-label="Next Milestone" role="button" class="playlist-button next"
+        onclick="move_to_next_step()">
+        <img aria-hidden="true" class="playlist-button-img" src="/assets/fastForward-white.png"/>
+      </div>
+      <div class="small-button common-button gap-top" onclick="goto_path_selector()">
+        <p class="medium-button-text">סיום ניווט</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="path_review_page" hidden>
+    <h1>סקירת מסלול</h1>
+    <br><br>
+    <textarea id="textarea" rows="4" cols="50" dir = "rtl" data-bind="text: get_path_json()" disabled></textarea>
+    <div class="small-button common-button gap-top" onclick="goto_path_selector()">
+      <p class="medium-button-text">חזור</p>
+    </div>
+    <div class="small-button common-button gap-top" onclick="goto_nav_page()">
+      <p class="medium-button-text">התחל ניווט</p>
+    </div>
+  </div>
+          
+</body>
+
+</html>

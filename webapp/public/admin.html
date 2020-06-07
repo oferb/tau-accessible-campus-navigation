@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+	<meta charset="utf-8">
+	<title>TAU Walks</title>
+	<link rel="stylesheet" href="admin.css" />
+	<script type="text/javascript" src="admin.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+		integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+		crossorigin="" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.0.1/collection/components/icon/icon.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.awesome-markers@2.0.5/dist/leaflet.awesome-markers.css">
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+		integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+		crossorigin=""></script>
+</head>
+
+<body>
+	<div id="admin_console_page">
+    <div class="large-button common-button gap-top" onclick="goto_all_paths_map_page()">
+      <p class="large-button-text">הצגת כל המסלולים</p>
+    </div>
+	</div>
+
+  <div id="all_paths_map_page" hidden>
+    <div class="map-overlay">
+      <div id="map"></div>
+    </div>
+  </div>
+</body>
+
+</html>
