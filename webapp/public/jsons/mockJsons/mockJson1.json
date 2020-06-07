@@ -1,0 +1,32 @@
+[
+  {
+    "lat": 32.4,
+    "lon": 34.4,
+    "text": "Here lies dragons"
+  },
+  {
+    "lat": 32.5,
+    "lon": 34.4,
+    "text": "There's a bench here"
+  },
+  {
+    "lat": 32.5,
+    "lon": 34.5,
+    "text": "Shreiberg building here"
+  },
+  {
+    "lat": 32.4512,
+    "lon": 34.442,
+    "text": "The jewish synagouge here"
+  },
+  {
+    "lat": 32.5,
+    "lon": 34.8,
+    "text": "There's a bench here"
+  },
+  {
+    "lat": 32.5,
+    "lon": 34.5,
+    "text": "Building here"
+  }
+]

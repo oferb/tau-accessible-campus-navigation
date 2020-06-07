@@ -1,0 +1,267 @@
+body {
+  height: 82vh;
+  font-family: "Arial";
+  direction: rtl;
+  text-align: center;
+  background-color: #2b2b2b;
+  color: #ffffe6;
+}
+
+h1 {
+  font-size: 7em;
+  text-align: center;
+  margin: unset;
+}
+
+h3 {
+  font-size: 4em;
+  text-align: right;
+  margin: unset;
+}
+
+h4 {
+  font-size: 3em;
+  text-align: right;
+}
+
+select {
+  text-align-last: center;
+  width: 60%;
+  height: 5em;
+  font-size: 100%;
+  font-weight: bold;
+  border-radius: 0;
+  border: none;
+  padding: 10px;
+  appearance: none;
+  color: #ffffe6;
+  border-color: #ffffe6;
+  border-style: groove;
+  border-width: 7px;
+  background-color: #2b2b2b;
+}
+
+textarea {
+  width: 800px;
+  padding: 50px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 20px;
+  height: 350px;
+  font-size: 20pt;
+  color: #ffffe6;
+  border-color: #ffffe6;
+  border-style: groove;
+  border-width: 7px;
+  background-color: #2b2b2b;
+}
+
+.common-button {
+  border-radius: 2em;
+  text-align: center;
+  color: #ffffe6;
+  border-color: #ffffe6;
+  border-style: groove;
+  border-width: 7px;
+  background-color: #2b2b2b;
+}
+
+.gap-top {
+  margin-top: 4em;
+}
+
+.large-button {
+  padding: 2em 0;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.large-button-text {
+  font-size: 6em;
+}
+
+.medium-button {
+  padding: 2em 0;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.medium-button-text {
+  font-size: 4em;
+}
+
+.small-button {
+  padding: 1em 0;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* CSS of index.html */
+
+.index-main-container {
+  position: relative;
+  height: 100%;
+}
+
+.always-skip-button {
+  position: absolute;
+  bottom: 4vh;
+  right: 1em;
+  padding: 3em;
+}
+
+.always-skip-text {
+  font-size: 3em;
+}
+
+
+/* CSS of navConf.html */
+
+.target-select * {
+  display: inline-block;
+}
+
+.target-select-title {
+  font-size: 4em;
+  width: 42%;
+}
+
+.select option {
+  text-align: center;
+  text-align-last: center;
+}
+
+/*.switch-direction-arrow {
+  color: black;
+  font-size: 3em;
+  width: max-content;
+  margin: auto;
+  transform: rotate(90deg);
+}*/
+
+.doubleArrow{
+  width: 15%;
+  padding-left: 50%;
+}
+  
+
+/* CSS of pathsOverview.html */
+
+.description {
+  border-radius: 1em;
+  font-size:2.8vh;
+  color: #ffffe6;
+  border-color: #ffffe6;
+  border-style: groove;
+  border-width: 7px;
+  background-color: #2b2b2b;
+}
+
+/* CSS of nav.html */
+
+.milestone-nav {
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 25%;
+}
+
+.milestone {
+  max-height: 25vh;
+  height: 25vh;
+  overflow-y: auto;
+  text-align: right;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.playlist-button {
+  display: inline-block;
+}
+
+.playlist-button-img {
+  width: 10em;
+  height: 8em;
+}
+
+.playlist-main-button-img {
+  width: 14em;
+  height: 14em;
+}
+
+.next {
+  transform: rotate(180deg);
+}
+
+.playpause {
+  margin-left: 16%;
+  margin-right: 16%;
+  height: max-content;
+  width: max-content;
+}
+
+/*.switch-direction-arrow {
+  color: black;
+  font-size: 3em;
+  width: max-content;
+  margin: auto;
+  transform: rotate(90deg);
+}*/
+
+.map-overlay {
+  height: 25%;
+  margin: 0 auto;
+  background-color: #fff;
+  position: relative;
+  border-radius: 2px;
+  padding-top: 15px;
+}
+
+#details{
+  height: 45%;
+}
+#from {
+  font-size: 30pt;
+  width: 50%;
+}
+
+#to {
+  font-size: 30pt;
+  width: 50%;
+}
+
+#map {
+  height: 400px;
+  margin: 0 auto;
+  border-style: groove;
+}
+
+.map iframe {
+  height: 100%;
+  width: 100%;
+}
+
+.map {
+  width: 98%;
+  height: 30vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#all_paths_map {
+  height: 400px;
+  margin: 0 auto;
+  border-style: groove;
+}
+#all_path_review_page {
+  height: 100%;
+}
+
+#path_navigator_page {
+  height: 100%;
+}
