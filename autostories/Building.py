@@ -22,14 +22,14 @@ def create_points_list(raw_points_list):
     return new_points_list
 
 
-def create_description(raw_points_list) -> str:
+def create_description(raw_points_list) -> list:
     """
     :param raw_points_list: [[lon,lat]] for every turn]
     :return: the text
     """
     if len(raw_points_list) == 0:
-        return ""
-    result = ""
+        return []
+    result = []
     # points_list = get_all_nodes_in_route_simple(raw_points_list)
     points_list = create_points_list(raw_points_list)
     nodes_info = create_nodes_info(PATH)
@@ -37,12 +37,16 @@ def create_description(raw_points_list) -> str:
     # section_list = split_to_sections(points_list, nodes_info)
     section_list = CreateSectionsNew.create_sections(points_list, nodes_info)
     print("len(section_list)", len(section_list), "\n")
-    result += section_list[0].get_section_description(None)
+    result.append(section_list[0].get_section_description(None))
     for section_index in range(1, len(section_list)):
-        result += section_list[section_index].get_section_description(section_list[section_index - 1])
-        result += "\nnext section:\n"
+        result.append(section_list[section_index].get_section_description(section_list[section_index - 1]))
     return result
 
 
 if __name__ == '__main__':
-    print(create_description(entrance_to_gilman[:2]))
+    result = create_description(entrance_to_gilman_manual)
+    for i in range(len(result)):
+        print("\nsection:")
+        print(result[i])
+
+

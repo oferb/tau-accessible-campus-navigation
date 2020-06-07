@@ -75,7 +75,7 @@ def add_parameters_to_section_by_nodes(section, nodes_to_section):
     end_point = section.end_point
     for i in range(len(nodes_to_section)):
         current_node = nodes_to_section[i]
-        if "is_steps" in current_node:
+        if "is_steps" in current_node and current_node["is_steps"]:
             is_steps = current_node["is_steps"]
         if "ground_type" in current_node:
             ground_type = current_node["ground_type"]
@@ -96,8 +96,8 @@ def add_parameters_to_section_by_nodes(section, nodes_to_section):
             block = current_node["block"]
         if "comments" in current_node:
             comments = current_node["comments"]
-        if "name" in current_node:
-            name = current_node["name"]
+        # if "name" in current_node:
+        #    name = current_node["name"]
     end_section: Section = Section(start_point, end_point)
     end_section.set_parameters(is_steps, length, ground_type, slope, r_side_description, l_side_description, steps_num,
                                rail, stairs_slope, block, comments, name)

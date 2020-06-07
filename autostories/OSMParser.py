@@ -88,6 +88,7 @@ def create_output_list(nodes, ways):
             if current_node is not None:
                 start_point = Point(current_node.lat, current_node.lon, id)  # ???
                 node_tags["start_point"] = start_point
+                node_tags["way"] = way.id
 
                 if "highway" in way.tags:
                     node_tags["ground_type"] = way.tags["highway"]

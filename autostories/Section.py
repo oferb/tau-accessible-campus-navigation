@@ -142,8 +142,12 @@ class Section:
 
     def create_steps_description(self) -> str:
         result = "go " + self.stairs_slope + " " + str(self.steps_num) + " stairs"
-        if self.rail != "N":
+        if self.rail == "right" or self.rail == "left":
             result += ", use the rail on the " + self.rail
+        elif self.rail == "yes":
+            result += ", use the rail on either side"
+        else:
+            result += ", there is no rails"
         return result
 
     def create_r_side_description(self) -> str:
