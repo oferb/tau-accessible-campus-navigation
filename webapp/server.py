@@ -31,15 +31,12 @@ def post(path):
 
 @app.route('/jsons')
 def jsons():
-  global jsons_response
-  if not jsons_response:
-    all_jsons = []
-    for i in range(5):
-      path = get_path_in_public("jsons/{0}.json".format(i))
-      with open(path, "r",) as current_json_file:
-        all_jsons.append(json.load(current_json_file))
-    jsons_response = json.dumps(all_jsons, ensure_ascii=False), 200, {'Content-Type': get_mime(path)}
-  return jsons_response
+  all_jsons = []
+  for i in range(6):
+    path = get_path_in_public("jsons2/{0}.json".format(i))
+    with open(path, "r",) as current_json_file:
+      all_jsons.append(json.load(current_json_file))
+  return json.dumps(all_jsons, ensure_ascii=False), 200, {'Content-Type': get_mime(path)}
 
 def get_path_in_public(path:str):
   if not path:

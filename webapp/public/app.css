@@ -172,8 +172,8 @@ textarea {
 }
 
 .milestone {
-  max-height: 25vh;
-  height: 25vh;
+  /* max-height: 25vh; */
+  /* height: 25vh; */
   overflow-y: auto;
   text-align: right;
   padding-left: 28px;

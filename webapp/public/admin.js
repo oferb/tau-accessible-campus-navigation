@@ -13,6 +13,11 @@
 // TODO: Change google maps to dark mode design
 // TODO(): Change the textarea element in Review Page to seperate blocks per milestone (all blocks are one after the other by order) 
 
+// TODO: Add title to navigation page with names of buildings
+// TODO: nav_page should open navigation page, and have buildings as url params, e.g:
+//       https://blueofer.wakka.app/nav_page?b1=1&b2=3
+
+
 let admin_console_page;
 let all_paths_map_page;
 let current_json;
